@@ -7,12 +7,31 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
+    public float speed = 0.05f;
+    public GameObject Player;
+
     void Update()
     {
-        
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += Vector3.right * speed;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += Vector3.left * speed;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += Vector3.forward * speed;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += Vector3.back * speed;
+        }
     }
 }
