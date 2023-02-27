@@ -7,11 +7,13 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     public float speed = 0.05f;
+    public float jumpForce = 1.0f;
+    private Rigidbody rb;
     public GameObject Player;
 
     void Update()
@@ -33,5 +35,11 @@ public class playerController : MonoBehaviour
         {
             transform.position += Vector3.back * speed;
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+        }
+
+
     }
 }
