@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    private float speed = 1.0f;
-    public GameObject character;
+    public float speed = 0.05f;
+    public GameObject Player;
 
     void Update()
     {
@@ -33,6 +33,5 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += Vector3.back * speed;
         }
-
     }
 }
