@@ -1,4 +1,5 @@
 # Zoologisk have
+<<<<<<< HEAD
 Bruger: Jeg vil gerne have et runner game hvor man stikker af fra en zoologisk have af dyr
 Os: Skal det være level basseret, hvor dyrene og banerne bliver sværere at klare?
 Bruger: Ja det ville passe rigtigt godt. Kan personen der stikker af kravle?
@@ -7,3 +8,6 @@ Bruger: Det passer godt ja. Kan det laves sådan at spilleren hele tiden bevæge
 Os: Altså for at undgå dyrene?
 Bruger: Ja præcis!
 Os: Okay vi har en ide nu. Vi vender tilbage med et produkt
+=======
+Krav: man skal kunne dodge nogle dyr
+>>>>>>> MeAtTheZoo
