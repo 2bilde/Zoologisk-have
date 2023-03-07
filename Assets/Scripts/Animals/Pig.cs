@@ -6,20 +6,37 @@ namespace Lesson_6.Animals
 {
     public class Pig : FriendlyAnimal
     {
-        private bool _goingUp = true;
         protected void Update()
         {
-            if (transform.position.z > 50 && _goingUp == true)
+            if (CurrentState == AnimalState.IDLE && !Busy)
             {
-                _goingUp = false;
+                Busy = true;
+                Vector3 nextGraze = Pen.transform.position;
+                Vector2 rand = Random.insideUnitCircle * 25f;
+                nextGraze.x += rand.x;
+                nextGraze.y = 2f;
+                nextGraze.z += rand.y;
+                StartCoroutine(LerpMovement(nextGraze));
             }
-            else if(transform.position.z < 0f && _goingUp == false)
-            {
-                _goingUp = true;
-            }
-
-            if(_goingUp) transform.Translate(Vector3.forward);
-            if(!_goingUp) transform.Translate(Vector3.back);
         }
+
+        private IEnumerator LerpMovement(Vector3 to)
+        {
+            float lerpTimer = 0;
+            float lerpDuration = 2.5f;
+
+            while (lerpTimer < lerpDuration)
+            {
+                transform.position = Vector3.Lerp(transform.position, to, lerpTimer / lerpDuration);
+                lerpTimer += Time.deltaTime;
+
+                Vector3 targetDir = to - transform.position;
+                if (targetDir != Vector3.zero) transform.rotation = Quaternion.LookRotation(targetDir);
+
+                yield return null;
+            }
+            Busy = false;
+        }
+
     }
 }
