@@ -6,6 +6,7 @@ namespace Lesson_6.Animals
 {
     public class Pig : FriendlyAnimal
     {
+
         private bool _goingUp = true;
         protected void Update()
         {
@@ -13,13 +14,15 @@ namespace Lesson_6.Animals
             {
                 _goingUp = false;
             }
-            else if(transform.position.z < 0f && _goingUp == false)
+            else if (transform.position.z < 0f && _goingUp == false)
             {
                 _goingUp = true;
             }
 
-            if(_goingUp) transform.Translate(Vector3.forward);
-            if(!_goingUp) transform.Translate(Vector3.back);
+            if (_goingUp) transform.Translate(Vector3.forward);
+            if (!_goingUp) transform.Translate(Vector3.back);
         }
     }
+
+
 }
