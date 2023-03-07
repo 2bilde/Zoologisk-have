@@ -19,20 +19,21 @@ public class playerController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * speed;
-        }
-        if (Input.GetKey(KeyCode.A))
+
+
+        transform.position += Vector3.right * speed;
+
+        if (Input.GetKey(KeyCode.S))
         {
             transform.position += Vector3.left * speed;
         }
 
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += Vector3.forward * speed;
+        }
 
-        transform.position += Vector3.forward * speed;
-
-
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.back * speed;
         }
