@@ -30,7 +30,7 @@ public class Zoo : MonoBehaviour
         //Spawn animal pen
         GameObject go = Instantiate(AnimalPenPrefab, transform);
         //Set the position of the pen to be 50 units away from the previous pen in both x and z
-        Vector3 spawnLocation = new Vector3((counter + 1) * 50, 0, (counter + 1) * 50);
+        Vector3 spawnLocation = new Vector3((counter + 1) * 25, 0, 25);
         go.transform.SetPositionAndRotation(spawnLocation, Quaternion.identity);
         AnimalPen pen = go.GetComponent<AnimalPen>();
 
@@ -44,12 +44,12 @@ public class Zoo : MonoBehaviour
                 pen.SpawnAnimals(spawns);
                 break;
 
-            //Spawn 50 cats using a 2D array
+            //Spawn 20 cats using a 2D array
             case 1:
                 int[][] matrix = new int[10][];
                 for (int i = 0; i < matrix.Length; i++)
                 {
-                    matrix[i] = new int[5];
+                    matrix[i] = new int[2];
                     for (int j = 0; j < matrix[i].Length; j++)
                     {
                         matrix[i][j] = 1;
