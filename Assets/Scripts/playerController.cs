@@ -27,10 +27,11 @@ public class playerController : MonoBehaviour
         {
             transform.position += Vector3.left * speed;
         }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += Vector3.forward * speed;
-        }
+
+
+        transform.position += Vector3.forward * speed;
+
+
         if (Input.GetKey(KeyCode.S))
         {
             transform.position += Vector3.back * speed;
