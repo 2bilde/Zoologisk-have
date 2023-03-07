@@ -4,23 +4,33 @@ using UnityEngine;
 
 namespace Lesson_6.Animals
 {
+
     public class Pig : FriendlyAnimal
     {
-
+        private float piggySpeed = 0.2f;
         private bool _goingUp = true;
+
+        private float delayTimer = 0;
         protected void Update()
         {
-            if (transform.position.z > 50 && _goingUp == true)
+            if (delayTimer == 0)
             {
-                _goingUp = false;
+                delayTimer = Random.Range(0.5f, 3);
             }
-            else if (transform.position.z < 0f && _goingUp == false)
+            if (Time.timeSinceLevelLoad > delayTimer)
             {
-                _goingUp = true;
-            }
+                if (transform.position.z > 50 && _goingUp == true)
+                {
+                    _goingUp = false;
+                }
+                else if (transform.position.z < 0f && _goingUp == false)
+                {
+                    _goingUp = true;
+                }
 
-            if (_goingUp) transform.Translate(Vector3.forward);
-            if (!_goingUp) transform.Translate(Vector3.back);
+                if (_goingUp) transform.Translate(Vector3.forward * piggySpeed);
+                if (!_goingUp) transform.Translate(Vector3.back * piggySpeed);
+            }
         }
     }
 
