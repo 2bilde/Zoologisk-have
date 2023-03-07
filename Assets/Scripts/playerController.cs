@@ -21,6 +21,8 @@ public class playerController : MonoBehaviour
 
 
 
+
+
         transform.position += Vector3.right * speed;
 
         if (Input.GetKey(KeyCode.S))
@@ -43,5 +45,21 @@ public class playerController : MonoBehaviour
         }
 
 
+
+
+
     }
+
+    void MoveGameObject()
+    {
+        Player.transform.position = new Vector3(5, -6, 25);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
+        MoveGameObject();
+
+    }
+
 }
