@@ -13,11 +13,16 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     public float speed = 0.05f;
     public float jumpForce = 1.0f;
+
+    public bool isGrounded;
     private Rigidbody rb;
     public GameObject Player;
 
+
     void Update()
     {
+
+
 
 
 
@@ -37,11 +42,30 @@ public class playerController : MonoBehaviour
         {
             transform.position += Vector3.back * speed;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            isGrounded = false;
         }
 
 
     }
+
+    void OnCollisionEnter()
+    {
+        isGrounded = true;
+    }
+
+    void MoveGameObject()
+    {
+        Player.transform.position = new Vector3(5, -6, 25);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
+        MoveGameObject();
+
+    }
+
 }
